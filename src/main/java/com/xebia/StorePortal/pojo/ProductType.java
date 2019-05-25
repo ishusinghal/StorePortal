@@ -1,4 +1,4 @@
-package com.xebia.StorePortal.model;
+package com.xebia.StorePortal.pojo;
 
 
 public enum ProductType {

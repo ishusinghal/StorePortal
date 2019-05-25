@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.xebia.StorePortal.model.UsersType;
 
-@Service
 public interface UserService {
 	public List<UsersType> getAllUsers();
 

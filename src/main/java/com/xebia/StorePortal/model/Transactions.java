@@ -28,7 +28,7 @@ public class Transactions implements Serializable {
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@Column(name = "user_id")
-	private List<UsersType> usersType;
+	private List<EmpUser> empUser;
 	
 	@Column(name = "bill_amount")
 	private Double billAmount;
@@ -42,16 +42,17 @@ public class Transactions implements Serializable {
 	protected Transactions() {
 		
 	}
+
 	
-	public Transactions(Integer tid, List<UsersType> usersType, Double billAmount, String productType,
-			Date txDate) {
+	public Transactions(Integer tid, List<EmpUser> empUser, Double billAmount, String productType, Date txDate) {
 		super();
 		this.tid = tid;
-		this.usersType = usersType;
+		this.empUser = empUser;
 		this.billAmount = billAmount;
 		this.productType = productType;
 		this.txDate = txDate;
 	}
+
 
 	public Integer getTid() {
 		return tid;
@@ -61,12 +62,12 @@ public class Transactions implements Serializable {
 		this.tid = tid;
 	}
 
-	public List<UsersType> getUsersType() {
-		return usersType;
+	public List<EmpUser> getEmpUser() {
+		return empUser;
 	}
 
-	public void setUsersType(List<UsersType> usersType) {
-		this.usersType = usersType;
+	public void setEmpUser(List<EmpUser> empUser) {
+		this.empUser = empUser;
 	}
 
 	public Double getBillAmount() {
@@ -92,5 +93,6 @@ public class Transactions implements Serializable {
 	public void setTxDate(Date txDate) {
 		this.txDate = txDate;
 	}
+
 	
 }

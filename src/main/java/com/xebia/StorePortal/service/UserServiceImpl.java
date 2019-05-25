@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.xebia.StorePortal.model.UsersType;
 import com.xebia.StorePortal.repository.UserDao;
 
+@Service
 public class UserServiceImpl implements UserService{
 	
 	@Autowired

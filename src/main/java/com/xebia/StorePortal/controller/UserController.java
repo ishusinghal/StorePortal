@@ -33,7 +33,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/findNetPayableAmount",method = RequestMethod.POST)
-	public ResponseEntity<?> findNetPayableAmount(@RequestBody Transaction transaction) {
+	public Double findNetPayableAmount(@RequestBody Transaction transaction) {
 			
 		//	Things to do 
 		// ValidateTransactionBean and pass to the service 
@@ -45,6 +45,9 @@ public class UserController {
 
 //		return ResponseEntity.created(loc).build();
 		
+		Double netPayableAmount = tranServiceImpl.findNetPayableAmount(savedTran);
+		
+		return netPayableAmount;
 	}
 	
 	
