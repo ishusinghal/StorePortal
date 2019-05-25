@@ -32,15 +32,20 @@ public class UserController {
 		return  userServiceImpl.getAllUsers();
 	}
 	
-	@RequestMapping(value = "/getNetAmount",method = RequestMethod.POST)
-	public ResponseEntity<?> getNetAmount(@RequestBody Transaction transaction) {
+	@RequestMapping(value = "/findNetPayableAmount",method = RequestMethod.POST)
+	public ResponseEntity<?> findNetPayableAmount(@RequestBody Transaction transaction) {
 			
-//		validateTransact
+		//	Things to do 
+		// ValidateTransactionBean and pass to the service 
+		
 		Transactions savedTran = tranServiceImpl.saveTransaction(transaction);
 		
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-				.buildAndExpand(savedTransaction.getTid()).toUri();
+		URI loc = ServletUriComponentsBuilder.fromCurrentRequest().path("/{tid}")
+				.buildAndExpand(savedTran.getTid()).toUri();
 
-		return ResponseEntity.created(location).build();
+//		return ResponseEntity.created(loc).build();
+		
 	}
+	
+	
 }
