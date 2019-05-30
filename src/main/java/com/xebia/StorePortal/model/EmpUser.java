@@ -36,12 +36,11 @@ public class EmpUser implements Serializable{
 	@Column(name = "created_date")
 	private Date createdDate;
 
-	protected EmpUser() {
+	public EmpUser() {
 
 	}
 
 	public EmpUser(Integer userId, String userName, List<UsersType> userType, Date createdDate) {
-		super();
 		this.userId = userId;
 		this.userName = userName;
 		this.userType = userType;

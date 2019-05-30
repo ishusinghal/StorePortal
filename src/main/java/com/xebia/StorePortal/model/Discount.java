@@ -3,10 +3,15 @@ package com.xebia.StorePortal.model;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.usertype.UserType;
@@ -15,11 +20,7 @@ import org.hibernate.usertype.UserType;
 @Table(name = "discount")
 public class Discount implements Serializable {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue
 	@Column(name = "dis_id")
@@ -28,8 +29,8 @@ public class Discount implements Serializable {
 	@Column(name = "percent_discount")
 	private Integer perDiscount;
 	
-	@Column(name = "dis_for")
-	private UserType discountFor;
+	@Column(name="dis_for")
+	private Integer discountFor;
 	
 	@Column(name = "created_date")
 	private Date createdDate;
@@ -37,14 +38,12 @@ public class Discount implements Serializable {
 	@Column(name="created_by")
 	private String createdBy;
 	
-	protected Discount() {
+	public Discount() {
 	}
 	
-	public Discount(Integer disId, Integer perDiscount, UserType discountFor, Date createdDate, String createdBy) {
-		super();
+	public Discount(Integer disId, Integer perDiscount, Date createdDate, String createdBy) {
 		this.disId = disId;
 		this.perDiscount = perDiscount;
-		this.discountFor = discountFor;
 		this.createdDate = createdDate;
 		this.createdBy = createdBy;
 	}
@@ -65,11 +64,11 @@ public class Discount implements Serializable {
 		this.perDiscount = perDiscount;
 	}
 
-	public UserType getDiscountFor() {
+	public Integer getDiscountFor() {
 		return discountFor;
 	}
 
-	public void setDiscountFor(UserType discountFor) {
+	public void setDiscountFor(Integer discountFor) {
 		this.discountFor = discountFor;
 	}
 
@@ -89,4 +88,5 @@ public class Discount implements Serializable {
 		this.createdBy = createdBy;
 	}
 
+	
 }

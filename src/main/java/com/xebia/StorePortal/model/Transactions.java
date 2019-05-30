@@ -39,13 +39,12 @@ public class Transactions implements Serializable {
 	@Column(name = "tx_date")
 	private Date txDate;
 
-	protected Transactions() {
+	public Transactions() {
 		
 	}
 
 	
 	public Transactions(Integer tid, List<EmpUser> empUser, Double billAmount, String productType, Date txDate) {
-		super();
 		this.tid = tid;
 		this.empUser = empUser;
 		this.billAmount = billAmount;

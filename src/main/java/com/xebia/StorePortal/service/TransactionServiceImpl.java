@@ -22,9 +22,6 @@ public class TransactionServiceImpl implements TransactionService {
 	@Autowired
 	TransactionDao tranDao;
 
-//	@Autowired
-//	Disc
-	
 	@PersistenceContext
     private EntityManager em;
 	
