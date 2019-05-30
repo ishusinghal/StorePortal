@@ -1,57 +1,39 @@
 package com.xebia.StorePortal.pojo;
 
+import java.math.BigDecimal;
+
 public class Transaction {
 	
-	private Integer tid;
+	private Integer userId;
 	
-	private Integer usersType;
+	private BigDecimal billAmount;
 	
-	private Double billAmount;
-	
-	private String productType;
-	
-	private String txDate;
+	private ProductType productType;
 
-	public Integer getTid() {
-		return tid;
+	public Integer getUserId() {
+		return userId;
 	}
 
-	public void setTid(Integer tid) {
-		this.tid = tid;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
-	public Integer getUsersType() {
-		return usersType;
-	}
-
-	public void setUsersType(Integer usersType) {
-		this.usersType = usersType;
-	}
-
-	public Double getBillAmount() {
+	public BigDecimal getBillAmount() {
 		return billAmount;
 	}
 
-	public void setBillAmount(Double billAmount) {
+	public void setBillAmount(BigDecimal billAmount) {
 		this.billAmount = billAmount;
 	}
 
-	public String getProductType() {
+	public ProductType getProductType() {
 		return productType;
 	}
 
-	public void setProductType(String productType) {
+	public void setProductType(ProductType productType) {
 		this.productType = productType;
 	}
-
-	public String getTxDate() {
-		return txDate;
-	}
-
-	public void setTxDate(String txDate) {
-		this.txDate = txDate;
-	}
-
+	
 	
 	
 }

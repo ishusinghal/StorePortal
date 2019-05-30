@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,9 +30,8 @@ public class EmpUser implements Serializable{
 	@Column(name = "user_name")
 	private String userName;
 
-	@OneToMany(cascade = CascadeType.ALL)
 	@Column(name = "user_type")
-	private List<UsersType> userType;
+	private Integer userType;
 
 	@Column(name = "created_date")
 	private Date createdDate;
@@ -40,7 +40,7 @@ public class EmpUser implements Serializable{
 
 	}
 
-	public EmpUser(Integer userId, String userName, List<UsersType> userType, Date createdDate) {
+	public EmpUser(Integer userId, String userName, Integer userType, Date createdDate) {
 		this.userId = userId;
 		this.userName = userName;
 		this.userType = userType;
@@ -68,11 +68,11 @@ public class EmpUser implements Serializable{
 		this.userName = userName;
 	}
 
-	public List<UsersType> getUserType() {
+	public Integer getUserType() {
 		return userType;
 	}
 
-	public void setUserType(List<UsersType> userType) {
+	public void setUserType(Integer userType) {
 		this.userType = userType;
 	}
 

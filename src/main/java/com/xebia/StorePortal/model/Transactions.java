@@ -1,15 +1,14 @@
 package com.xebia.StorePortal.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.sql.Date;
-import java.util.List;
+import java.sql.Timestamp;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,25 +25,24 @@ public class Transactions implements Serializable {
 	@Column(name = "tid")
 	private Integer tid;
 	
-	@OneToMany(cascade = CascadeType.ALL)
 	@Column(name = "user_id")
-	private List<EmpUser> empUser;
+	private Integer empUser;
 	
 	@Column(name = "bill_amount")
-	private Double billAmount;
+	private BigDecimal billAmount;
 	
 	@Column(name = "product_type")
 	private String productType;
 	
 	@Column(name = "tx_date")
-	private Date txDate;
+	private Timestamp txDate;
 
 	public Transactions() {
 		
 	}
 
 	
-	public Transactions(Integer tid, List<EmpUser> empUser, Double billAmount, String productType, Date txDate) {
+	public Transactions(Integer tid, Integer empUser, BigDecimal billAmount, String productType, Timestamp txDate) {
 		this.tid = tid;
 		this.empUser = empUser;
 		this.billAmount = billAmount;
@@ -61,19 +59,22 @@ public class Transactions implements Serializable {
 		this.tid = tid;
 	}
 
-	public List<EmpUser> getEmpUser() {
+	
+	public Integer getEmpUser() {
 		return empUser;
 	}
 
-	public void setEmpUser(List<EmpUser> empUser) {
+
+	public void setEmpUser(Integer empUser) {
 		this.empUser = empUser;
 	}
 
-	public Double getBillAmount() {
+
+	public BigDecimal getBillAmount() {
 		return billAmount;
 	}
 
-	public void setBillAmount(Double billAmount) {
+	public void setBillAmount(BigDecimal billAmount) {
 		this.billAmount = billAmount;
 	}
 
@@ -85,11 +86,11 @@ public class Transactions implements Serializable {
 		this.productType = productType;
 	}
 
-	public Date getTxDate() {
+	public Timestamp getTxDate() {
 		return txDate;
 	}
 
-	public void setTxDate(Date txDate) {
+	public void setTxDate(Timestamp txDate) {
 		this.txDate = txDate;
 	}
 
